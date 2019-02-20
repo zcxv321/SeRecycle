@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         
+    </head>
+    <body>
+
+        <style>
+            .grid-container {
+              display: grid;
+              grid-template-columns: auto auto auto auto;
+              grid-gap: 10px;
+              /*background-color: #2196F3;*/
+              /*padding: 10px;*/
+            }
+            .grid-container > div {
+              background-color: rgba(255, 255, 255, 0.8);
+              /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+              text-align: center;
+              /*padding: 20px 0;*/
+              /*font-size: 5px;*/
+            }
+/*            .item1 {
+              grid-column-start: 1;
+              grid-column-end: 1.75;
+            }
+            .item2 {
+              grid-column-start: 1.75;
+              grid-column-end: 2.5;
+            }*/
+            .item3 {
+              grid-column-start: 10Cm;
+              grid-column-end: 21cm;
+              font-size: 15px;
+            }
+            table, td, th {
+                border: 1px solid black;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            td {
+                padding: 5px;
+            }
+
+        </style>
+   
+    <div style="width: 21cm; border: 1px solid white;">
+        <center><h3>ใบแจ้งซ่อม</h3></center>
+        <div class="grid-container">
+            <div class="item7">
+                    <label>วันที่</label>
+                    <a><%= repairss['วันที่แจ้งซ่อม'] %> </a>
+                    <br>
+                    <label>จาก&nbsp;&nbsp;&nbsp;</label>
+                    <label><%= repairss['แผนก'] %></label>
+                    <label>&nbsp;&nbsp;&nbsp;</label>
+                    <label><%= repairss['ฝ่าย'] %></label>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="item8" style="border: 1px solid black;">
+                <center>
+                    <label>สำหรับฝ่ายวิศวกรรม</label>
+                    <br>
+                    <label>job No.</label><label><%= repairss['นับประเภท'] %></label>
+                    <label>
+                        <!-- <input class="form-control" type="text" placeholder="Readonly input here…" readonly> -->
+                    </label>
+                </center>
+            </div>
+        </div>
+    </div>    
+    <br>
+    <label>========================================================================================</label>
+    <div style="width: 21cm; border: 1px solid white;">
+        <label>ชื่อเครื่องจักร&nbsp;&nbsp;&nbsp;</label>
+        <label><%= repairss['ชื่อเครื่องจักร'] %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label>รหัสเครื่องจักร&nbsp;&nbsp;&nbsp;</label>
+        <label><%= repairss['รหัสเครื่องจักร'] %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label>สถานที่ตั้ง&nbsp;&nbsp;&nbsp;</label>
+        <label><%= repairss['สถานที่ตั้ง'] %></label>
+        <br>
+        <div class="grid-container">
+            <div class="item8">
+                <label>แจ้งเพื่อ</label>
+            </div>
+            <div class="item9">
+                <% if( repairss['แจ้งเพื่อ'] == 'ซ่อมแซม' ) { %>
+                    <input type="checkbox" checked>
+                    <label>ซ่อมแซม</label>
+                    <br>
+                    <input type="checkbox">
+                    <label>ปรับแก้</label>
+                    <br>
+                    <input type="checkbox">
+                    <label>ตรวจสอบ</label>
+                    <br>
+                    <input type="checkbox">
+                    <label>Emergency</label>
+                <% } %>
+                <% if( repairss['แจ้งเพื่อ'] == 'ปรับแก้' ) { %>
+                        <input type="checkbox" >
+                        <label>ซ่อมแซม</label>
+                        <br>
+                        <input type="checkbox" checked>
+                        <label>ปรับแก้</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>ตรวจสอบ</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>Emergency</label>
+                <% } %>
+                <% if( repairss['แจ้งเพื่อ'] == 'ตรวจสอบ' ) { %>
+                        <input type="checkbox" >
+                        <label>ซ่อมแซม</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>ปรับแก้</label>
+                        <br>
+                        <input type="checkbox" checked>
+                        <label>ตรวจสอบ</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>Emergency</label>
+                <% } %>
+                <% if( repairss['แจ้งเพื่อ'] == 'Emergency' ) { %>
+                        <input type="checkbox" >
+                        <label>ซ่อมแซม</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>ปรับแก้</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>ตรวจสอบ</label>
+                        <br>
+                        <input type="checkbox" checked>
+                        <label>Emergency</label>
+                <% } %>
+            </div>
+            <div class="item10">
+                <label>อาการที่ปรากฎ</label><label>...............................................................</label>
+                <br>
+                <label><%= repairss['อาการที่ปรากฏ'] %></label>
+                <br>
+                <label>.........................................................................................</label>
+                <br>
+                <label>.........................................................................................</label>
+            </div>
+            <div class="item11">
+                <table>
+                    <thead>
+                        <th>เครื่องจักรชำรุด</th>
+                        <th>ระบุวันที่ต้องการเสร็จ</th>
+                    </thead>
+                    <tbody>
+                        <td>
+                            <label>วันที่ </label>
+                            <label><%= repairss['วันที่ชำรุด'] %></label>
+                        </td>
+                        <td>
+                            <label>วันที่ </label>
+                            <label><%= repairss['วันต้องการจะเสร็จ'] %></label>
+                        </td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+        <label>สถานะเครื่องจักร</label>
+            <% if( repairss['สถานะเครื่องจักร'] == 'เครื่องจักรหยุดการทำงาน' ) { %>
+            <input type="checkbox" checked>
+            <label>เครื่องจักรหยุดการทำงาน</label>
+            <input type="checkbox">
+            <label>เครื่องจักรกำลังทำงานอยู่</label>
+            <% } %>
+    
+            <% if( repairss['สถานะเครื่องจักร'] == 'เครื่องจักรกำลังทำงานอยู่' ) { %>
+                <input type="checkbox" >
+                <label>เครื่องจักรหยุดการทำงาน</label>
+                <input type="checkbox" checked>
+                <label>เครื่องจักรกำลังทำงานอยู่</label>
+            <% } %>
+        </div>
+        <div>
+            <label>ชื่อผู้ประสานงาน</label>
+            <label><%= repairss['ชื่อผู้ประสานงาน'] %></label>
+            <br>
+            <label>ลงชื่อ</label>
+            <label><%= repairss['ชื่อผู้แจ้งซ่อม'] %></label>
+            <label>ผู้แจ้งซ่อม (ตัวบรรจง)</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>ลงชื่อ</label>
+            <label><%= repairss['ชื่อหัวหน้าแผนก'] %></label>
+            <label>หนง./หนผ./ผจก.ฝ่าย (ตัวบรรจง)</label>
+        </div>
+    
+    </div>
+    <br>
+<label>========================================================================================</label>
+
+<form action="/createHistoyMach/<%= repairss['_id'] %>" method="POST">
+    <div style="width: 21cm; border: 1px solid white;">
+            <div>                                                          <!-- 1 -->
+                <b>สำหรับฝ่ายวิศวกรรม</b>
+                <br><br>
+                <label>ชื่อผู้ดำเนินการ : <input placeholder="โปรดระบุ" type="text" name="ชื่อผู้ดำเนินการ" required></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>ผู้มอบหมาย : <input placeholder="โปรดระบุ" type="text" name="ผู้มอบหมาย" required>หนผ.</label>
+                <% if( repairss['การดำเนินงาน'] == 'ซ่อม' ) { %>
+                    <input type="checkbox" >
+                    <label>สร้าง</label>
+                    <input type="checkbox" checked>
+                    <label>ซ่อม</label>
+                <% } %>
+                <% if( repairss['การดำเนินงาน'] == 'สร้าง' ) { %>
+                    <input type="checkbox" checked>
+                    <label>สร้าง</label>
+                    <input type="checkbox" >
+                    <label>ซ่อม</label>
+                <% } %>
+
+            </div>
+            <p>การเปิดงานซ่อม</p>
+            <div>                                                         <!-- การเปิดงานซ่อม -->
+                <div class="grid-container">
+                    <div class="item1">
+                        <center>
+                            <label>ผู้สั่งงาน / ผู้อนุมัติเปิดงาน</label>
+                            <br><br>
+                            <label>
+                                <!-- <input placeholder="โปรดระบุ" type="text" name="ผู้อนุมัติเปิดงาน" required> -->
+                                <select class="selectpicker" data-show-subtext="true" data-live-search="true" name="ผู้สั่งงานผู้อนุมัติเปิดงาน" required>
+                                        <option value="">โปรดระบุ</option>
+                                        <option data-subtext="(Location)" value="ผู้สั่งงาน/ผู้อนุมัติเปิดงาน1">ผู้สั่งงาน/ผู้อนุมัติเปิดงาน 1</option>
+                                        <option data-subtext="(Location)" value="ผู้สั่งงาน/ผู้อนุมัติเปิดงาน2">ผู้สั่งงาน/ผู้อนุมัติเปิดงาน 2</option>
+                                        <option data-subtext="(Location)" value="ผู้สั่งงาน/ผู้อนุมัติเปิดงาน3">ผู้สั่งงาน/ผู้อนุมัติเปิดงาน 3</option>
+                                        <option data-subtext="(Location)" value="ผู้สั่งงาน/ผู้อนุมัติเปิดงาน4">ผู้สั่งงาน/ผู้อนุมัติเปิดงาน 4</option>
+                                </select>
+                            </label>
+                            <br>
+                            <label>หนง. / หนผ.</label>
+                        </center>
+                    </div>
+                    <div class="item2">
+                        <center>
+                            <label>ฝ่ายผู้ใช้เครื่องจักรอนุญาต</label>
+                            <br><br>
+                            <label><input placeholder="โปรดระบุ" type="text" name="ฝ่ายผู้ใช้เครื่องจักรอนุญาต" required></label>
+                            <br>
+                            <label>หนง. / หนผ. /</label>
+                            <br><br>
+                            <label>ผจก.ฝ่าย<input placeholder="โปรดระบุ" type="text" name="ผจกฝ่ายฝ่ายผู้ใช้เครื่องจักรอนุญาต" required></label>
+                        </center>
+                    </div>
+                    <div class="item3">
+                            <table>
+                                    <thead>
+                                    <tr>
+                                        <th rowspan="2">วันที่อนุมัติเปิดงาน(ผู้สั่งงาน)</th>
+                                        <th colspan="3">วันที่อนุญาตให้ซ่อมเครื่อง    (ผู้ใช้เครื่อง)</th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                        <input type="checkbox">
+                                        <label>อนุญาต</label></th>
+                                        <th><input type="checkbox">
+                                        <label>เลื่อนไปลงชื่อ<input placeholder="โปรดระบุ" type="text" name="เลื่อนไปลงชื่อ" required></label></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>วันที่....................</td>
+                                        <td>วันที่....................</td>
+                                        <td>วันที่....................</td>
+                                    </tr>
+                                    <tr>
+                                        <td>เวลา....................</td>
+                                        <td>เวลา....................</td>
+                                        <td>เวลา....................</td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="grid-container">
+                <div class="item4">
+                    <input type="checkbox">
+                    <label>ผลกระทบต่อฝ่ายต่างๆ<input placeholder="โปรดระบุ" type="text" name="ผลกระทบต่อฝ่ายต่างๆ" required></label>
+                </div>
+                <div class="item5">
+                    <input type="checkbox">
+                    <label>Work Permit<input placeholder="โปรดระบุ" type="text" name="WorkPermit" required></label>
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="item6">
+                    <label>วันที่รับเอกสาร   : <%= repairss['วันที่รับเอกสาร'] %></label>
+                </div>
+                <div class="item7">
+                    <!-- <label>เวลา..12.00..</label> -->
+                </div>
+                <div class="item8">
+                    <label>ประเมินเวลาที่ใช้ในการซ่อม<input placeholder="โปรดระบุ" type="text" name="ประเมินเวลาที่ใช้ในการซ่อม" required>M/D</label>
+                </div>
+                <div class="item9">
+                    <label>จำนวนเวลาที่ใช้<input placeholder="โปรดระบุ" type="text" name="จำนวนเวลาที่ใช้" required>ชม.</label>
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="item6">
+                    
+                    <label>วันที่ประเมินวัสดุ<input type="date" name="bday" placeholder="โปรดระบุ" name="วันที่ประเมินวัสดุ" required></label>
+                </div>
+                <div class="item7">
+                    <label>วันที่สั่งซื้อวัสดุ <input type="date" name="bday" placeholder="โปรดระบุ" name="วันที่สั่งซื้อวัสดุ" required></label>
+                </div>
+                <div class="item8">
+                    <label>วันที่วัสดุครบพร้อมเริ่มงาน<input type="date" name="bday" placeholder="โปรดระบุ" name="วันที่วัสดุครบพร้อมเริ่มงาน" required></label>
+                </div>
+                <div class="item9">
+                    <label>กำหนดเสร็จ<input placeholder="โปรดระบุ" type="text" name="กำหนดเสร็จ" required>ชม.</label>
+                </div>
+            </div>
+            <div>
+                <label>การตรวจซ่อมเครื่องจักร</label>
+
+                <input type="radio" value="ซ่อมภายในบริษัท" name="การตรวจซ่อมเครื่องจักร" required>
+                <label>ซ่อมภายในบริษัท</label>
+                <input type="radio" value="ส่งซ่อมภายนอกบริษัท" name="การตรวจซ่อมเครื่องจักร" required>
+                <label>ส่งซ่อมภายนอกบริษัท</label>
+            </div>
+            <div>
+                <label>วิเคราะห์สาเหตุ<input placeholder="โปรดระบุ" type="text" name="วิเคราะห์สาเหตุ" required><br></label>
+            </div>
+            <div>
+                <label>รายละเอียดการซ่อม<input placeholder="โปรดระบุ" type="text" name="รายละเอียดการซ่อม" required><br><label>
+            </div>
+            <div>
+                <label>อะไหล่/วัสดุอุปกรณ์ที่ต้องใช้<input placeholder="โปรดระบุ" type="text" name="อะไหล่วัสดุอุปกรณ์ที่ต้องใช้" required><br><label>
+            </div>
+            <div>
+                <label>ผู้ปฏิบัติงานซ่อม</label>
+                <label>1) 
+                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" name="ผู้ปฏิบัติงานซ่อมi" required>
+                    <option value="">โปรดระบุ</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม1">ผู้ปฏิบัติงานซ่อม 1</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม2">ผู้ปฏิบัติงานซ่อม 2</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม3">ผู้ปฏิบัติงานซ่อม 3</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม4">ผู้ปฏิบัติงานซ่อม 4</option>
+                    </select>
+                </label>
+                <label>2) 
+                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" name="ผู้ปฏิบัติงานซ่อมii" required>
+                    <option value="">โปรดระบุ</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม1">ผู้ปฏิบัติงานซ่อม 1</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม2">ผู้ปฏิบัติงานซ่อม 2</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม3">ผู้ปฏิบัติงานซ่อม 3</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม4">ผู้ปฏิบัติงานซ่อม 4</option>
+                    </select>
+                </label>
+                <label>3) 
+                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" name="ผู้ปฏิบัติงานซ่อมiii" required>
+                    <option value="">โปรดระบุ</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม1">ผู้ปฏิบัติงานซ่อม 1</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม2">ผู้ปฏิบัติงานซ่อม 2</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม3">ผู้ปฏิบัติงานซ่อม 3</option>
+                    <option data-subtext="(Location)" value="ผู้ปฏิบัติงานซ่อม4">ผู้ปฏิบัติงานซ่อม 4</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>เริ่มดำเนินการซ่อมวันที่<input placeholder="โปรดระบุ" type="text" name="เริ่มดำเนินการซ่อมวันที่" required></label>
+                <!-- <label>เวลา.................</label> -->
+                <label>ซ่อมเสร็จวันที่<input placeholder="โปรดระบุ" type="text" name="ซ่อมเสร็จวันที่" required></label>
+                <!-- <label>เวลา....................</label> -->
+                <label>รวม<input placeholder="โปรดระบุ" type="text" name="รวมเวลาซ่อม" required>ชม.</label>
+            </div>
+    </div>
+
+<br>
+<label>========================================================================================</label>
+<div style="width: 21cm; border: 1px solid white;">
+    <b>การส่งมอบงาน</b>
+    <br><br>
+    <label>ข้อคิดเห็นเพิ่มเติม<input placeholder="โปรดระบุ" type="text" name="ข้อคิดเห็นเพิ่มเติม" required></label>
+    <br>
+    <div>       
+        <div class="grid-container">
+            <div class="item4">
+                <center>
+                    <label>ผู้ส่งมอบงาน</label>
+                    <br><br>
+                    <label><input placeholder="โปรดระบุ" type="text" name="ผู้ส่งมอบงาน" required></label>
+                    <br>
+                    <label>ผู้ปฏิบัติงาน / หนง.</label>
+                    <br><br>
+                    <label>วันที่<input placeholder="โปรดระบุ" type="text" name="วันที่ผู้ส่งมอบงาน" required></label>
+                    <!-- <label>เวลา...........</label> -->
+                </center>
+            </div>
+            <div class="item5">
+                <center>
+                    <label>ผู้รับมอบงาน</label>
+                    <br><br>
+                    <label><input placeholder="โปรดระบุ" type="text" name="ผู้รับมอบงาน" required></label>
+                    <br>
+                    <label>หนง. / หนผ. /</label>
+                    <br><br>
+                    <label>ผจก.ฝ่าย<input placeholder="โปรดระบุ" type="text" name="ผจกฝ่ายผู้รับมอบงาน" required></label>
+                    <br><br>
+                    <label>วันที่<input placeholder="โปรดระบุ" type="text" name="วันที่ผู้รับมอบงาน" required></label>
+                    <!-- <label>เวลา...........</label> -->
+                </center>
+            </div>
+            <div class="item6">
+                <center>
+                    <label>ผู้อนุมัติปิดงาน</label>
+                    <br><br>
+                    <label><input placeholder="โปรดระบุ" type="text" name="ผู้อนุมัติปิดงาน" required></label>
+                    <br>
+                    <label>หนง. / หนผ. /</label>
+                    <br><br>
+                    <label>วันที่<input placeholder="โปรดระบุ" type="text" name="วันที่ผู้อนุมัติปิดงาน" required></label>
+                    <!-- <label>เวลา...........</label> -->
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <br>
+            <input type="hidden" value="ปิดงาน" name="status">
+            <center>            
+            <button>ปิดงาน1</button>
+        </form>   
+            <a type="submit" class="btn btn-primary" href="/createHistoyMach/<%= repairss['_id'] %>" >ปิดงาน</a>
+            
+            <br><br><br>
+        
+            
+            </center>
+    </body>
+</html>

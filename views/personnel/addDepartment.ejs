@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Personnel Management</title>
+</head>
+	<style>
+				#myTable {
+	    	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	    	border-collapse: collapse;
+	    	width: 50%;
+		}
+
+		#myTable td, #myTable th {
+	    	border: 1px solid #ddd;
+	    	padding: 8px;
+		}
+
+		#myTable tr:nth-child(even){background-color: #f2f2f2;}
+
+		#myTable tr:hover {background-color: #ddd;}
+
+		#myTable th {
+	    	padding-top: 12px;
+	    	padding-bottom: 12px;
+	    	text-align: left;
+	    	background-color: #4CAF50;
+	    	color: white;
+		}
+		#myInput {
+	    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+	    background-position: 10px 12px; /* Position the search icon */
+	    background-repeat: no-repeat; /* Do not repeat the icon image */
+	    width: 100%; /* Full-width */
+	    font-size: 16px; /* Increase font-size */
+	    padding: 12px 20px 12px 40px; /* Add some padding */
+	    border: 1px solid #ddd; /* Add a grey border */
+	    margin-bottom: 12px; /* Add some space below the input */
+	}
+
+
+	body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #818181;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+	</style>
+<body>
+		<div class="sidenav">
+				<center>
+					<form method="get" action="/logout">
+						<button type="submit">Logout!</button>
+				</form>
+				</center>
+				<div class="list-group">
+						<a href="/addDepartmentName" class="list-group-item list-group-item-action list-group-item-secondary">เพิ่มแผนก</a>
+						<a href="/addPersonnel" class="list-group-item list-group-item-action list-group-item-secondary">เพิ่มบุคลากร</a>
+						<a href="/adminmenu" class="list-group-item list-group-item-action list-group-item-secondary">กลับไปหน้างานซ่อม</a>
+						<a href="/" class="list-group-item list-group-item-action list-group-item-secondary">กลับไปหน้าแรก</a>
+					</div>
+		</div>
+
+
+			<br><br><br>
+			<center><img src="logo.jpg" alt="" style="width: 500px"></center>
+
+			</div>
+			<center>
+                <form action="/addDepartmentName" method="post">
+                    DepartmentName:<br>
+					<input type="text" name="departmentName"><br>
+                <button type="submit" class="btn btn-success">ยืนยัน</button>
+                </form>
+		</center>
+		<br>
+		<br>
+</body>
+</html>

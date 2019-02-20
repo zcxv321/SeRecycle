@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ใบแจ้งซ่อม3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <script>
+        function myFunction() {
+            window.print();
+        }
+    </script>
+    <style>
+        .break {
+            word-break: break-all;
+        }
+
+        p {
+                margin: 1%;
+                font: 17px sans-serif;
+            }
+    </style>
+    <center>
+        <div style="width: 30cm" class="shadow p-4 mb-4 bg-white">
+            <h4>ใบแจ้งซ่อม</h4>
+            <div class="row">
+                <div class="col-sm-8">
+                    <p align='left'>
+                        <%= repairss['วันที่แจ้งซ่อม'] %>
+                    </p>
+                    <p align='left' class="break">จาก แผนก
+                        <%= repairss['แผนก'] %> &nbsp;&nbsp; ฝ่าย
+                        <%= repairss['ฝ่าย'] %>
+                    </p>
+                </div>
+                <div class="col-sm-4" style="border: 1px solid black;">
+                    <p>สำหรับฝ่ายวิศวกรรม</p>
+                    <p align='left'>Job No. &nbsp;
+                        <%= repairss['นับประเภท'] %>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align='left'>ชื่อเครื่องจักร&nbsp;&nbsp;
+                        <%= repairss['ชื่อเครื่องจักร'] %>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <p align='left'>รหัสเครื่องจักร&nbsp;&nbsp;
+                        <%= repairss['รหัสเครื่องจักร'] %>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <p align='left'>สถานที่ตั้ง&nbsp;&nbsp;
+                        <%= repairss['สถานที่ตั้ง'] %>
+                    </p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <p>แจ้งเพื่อ</p>
+                </div>
+                    <div class="col-sm-2">
+                        <% if( repairss['แจ้งเพื่อ'] == 'ซ่อมแซม' ) { %>
+                        <p align='left'>&#10003; ซ่อมแซม</p>
+                        <p align='left'>&#9711; ปรับแก้</p>
+                        <p align='left'>&#9711; ตรวจสอบ</p>
+                        <p align='left'>&#9711; Emergency</p>
+                        <% } %>
+                        <% if( repairss['แจ้งเพื่อ'] == 'ปรับแก้' ) { %>
+                        <p align='left'>&#9711; ซ่อมแซม</p>
+                        <p align='left'>&#10003; ปรับแก้</p>
+                        <p align='left'>&#9711; ตรวจสอบ</p>
+                        <p align='left'>&#9711; Emergency</p>
+                        <% } %>
+                        <% if( repairss['แจ้งเพื่อ'] == 'ตรวจสอบ' ) { %>
+                        <p align='left'>&#9711; ซ่อมแซม</p>
+                        <p align='left'>&#9711; ปรับแก้</p>
+                        <p align='left'>&#10003; ตรวจสอบ</p>
+                        <p align='left'>&#9711; Emergency</p>
+                        <% } %>
+                        <% if( repairss['แจ้งเพื่อ'] == 'Emergency' ) { %>
+                        <p align='left'>&#9711; ซ่อมแซม</p>
+                        <p align='left'>&#9711; ปรับแก้</p>
+                        <p align='left'>&#9711; ตรวจสอบ</p>
+                        <p align='left'>&#10003; Emergency</p>
+                        <% } %>
+                    </div>
+                    <div class="col-sm-3">
+                        <p align='left' class="break">อาการที่ปรากฎ&nbsp;&nbsp;
+                            <%= repairss['อาการที่ปรากฏ'] %>
+                        </p>
+                    </div>
+                    <div class="col-sm-5">
+                        <table>
+                            <thead style="border: 1px solid black; ">
+                                <th style="border: 1px solid black;"><p>เครื่องจักรชำรุด</p></th>
+                                <th style="border: 1px solid black;"><p>ระบุวันที่ต้องการเสร็จ</p></th>
+                            </thead>
+                            <tbody style="border: 1px solid black;">
+                                <td style="border: 1px solid black;">
+                                    <center>
+                                        <p>วันที่ / เวลา</p>
+                                    </center>
+                                    <center>
+                                        <p>
+                                            <%= repairss['วันที่ชำรุด'] %> / <%= repairss['เวลาชำรุด'] %> &nbsp;
+                                        </p>
+                                    </center>
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <center>
+                                        <p>วันที่ / เวลา</p>
+                                    </center>
+                                    <center>
+                                        <p>
+                                            <%= repairss['วันต้องการจะเสร็จ'] %> / <%= repairss['เวลาต้องการจะเสร็จ'] %> &nbsp;
+                                        </p>
+                                    </center>
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+            </div>
+
+            <div class="row">
+                <!-- <div class="col-sm-2">
+                    <p align='left'>สถานะเครื่องจักร</p>
+                </div> -->
+                <% if( repairss['สถานะเครื่องจักร'] == 'เครื่องจักรหยุดการทำงาน' ) { %>
+                    <div class="col-sm-10">
+                    <p align='left'> สถานะเครื่องจักร&nbsp;&nbsp;&nbsp;&nbsp; &#10003; เครื่องจักรหยุดการทำงาน &nbsp;&nbsp; &#9711; เครื่องจักรกำลังทำงานอยู่</p>
+                    </div>
+                <% } %>
+                <% if( repairss['สถานะเครื่องจักร'] == 'เครื่องจักรกำลังทำงานอยู่' ) { %>
+                    <div class="col-sm-10">
+                    <p align='left'>สถานะเครื่องจักร&nbsp;&nbsp;&nbsp;&nbsp;  &#9711; เครื่องจักรหยุดการทำงาน &nbsp;&nbsp; &#10003; เครื่องจักรกำลังทำงานอยู่</p>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <p align='left'>ชื่อผู้ประสานงาน &nbsp;&nbsp; <%= repairss['ชื่อผู้ประสานงาน'] %></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <p>ลงชื่อ &nbsp;&nbsp; <%= repairss['ชื่อผู้แจ้งซ่อม'] %> &nbsp;&nbsp; ผู้แจ้งซ่อม</p>
+                </div>
+                <div class="col-sm-7">
+                    <p>ลงชื่อ &nbsp;&nbsp; <%= repairss['ชื่อหัวหน้าแผนก'] %> &nbsp;&nbsp; หนง./หนผ./ผจก.ฝ่าย</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;</p>
+                </div>
+            </div>
+    <form action="/createHistoyMach/<%= repairss['_id'] %>" method="post">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p align='left'><b>สำหรับฝ่ายวิศวกรรม</b></p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">ชื่อผู้ดำเนินการ</span>
+                        </div>
+                        <input class="form-control" name="ชื่อผู้ดำเนินการ" pattern="[a-zA-Zก-ุฯ-๙\s]*" >
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">ผู้มอบหมาย</span>
+                        </div>
+                        <input class="form-control" name="ผู้มอบหมาย" pattern="[a-zA-Zก-ุฯ-๙\s]*" >
+                        <p>หนผ.</p>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <% if( repairss['การดำเนินงาน'] == 'ซ่อม' ) { %>
+                        <p>&#9711;สร้างฯ &nbsp;&nbsp; &#10003; ซ่อม</p>
+                    <% } %>
+                    <% if( repairss['การดำเนินงาน'] == 'สร้าง' ) { %>
+                        <p>&#10003;สร้างฯ &nbsp;&nbsp; &#9711; ซ่อม</p>
+                    <% } %>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <p align='left'><b>การเปิดงานซ่อม</b></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="usr">ผู้สั่งงาน / ผู้อนุมัติเปิดงาน</label>
+                        <input type="text" class="form-control" id="usr" name="ผู้สั่งงานผู้อนุมัติเปิดงาน" pattern="[a-zA-Zก-ุฯ-๙\s]*" >
+                        <label for="usr">หนง./หนผ.</label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="usr">ฝ่ายผู้ใช้เครื่องจักรอนุญาต</label>
+                        <input type="text" class="form-control" id="usr" name="ฝ่ายผู้ใช้เครื่องจักรอนุญาต" pattern="[a-zA-Zก-ุฯ-๙\s]*" >
+                        <label for="usr">หนง./หนผ./ผจก.ฝ่าย<input type="text" class="form-control" id="usr" name="ผจกฝ่ายฝ่ายผู้ใช้เครื่องจักรอนุญาต" ></label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                        <table>
+                                <thead style="border: 3px solid black; ">
+                                <tr style="border: 3px solid black; ">
+                                    <th rowspan="2" style="border: 3px solid black; " ><center>วันที่อนุมัติเปิดงาน<br>(ผู้สั่งงาน)</center></th>
+                                    <th colspan="3" style="border: 3px solid black; " ><center>วันที่อนุญาตให้ซ่อมเครื่อง    (ผู้ใช้เครื่อง)</center></th>
+                                </tr>
+                                <tr>
+                                    <th style="border: 3px solid black; ">
+                                    <center>
+                                        <input type="checkbox" name="อนุญาต" value="อนุญาต">
+                                        <label>อนุญาต</label>
+                                    </center>
+                                    </th>
+                                    <th style="border: 3px solid black; ">
+                                    <div class="form-group">
+                                    <center>
+                                        <label for="usr"><input type="checkbox">เลื่อนไป ลงชื่อ:</label>
+                                        <input type="text" class="form-control" id="usr" name="เลื่อนไปลงชื่อ" pattern="[a-zA-Zก-ุฯ-๙\s]*">
+                                    </center>
+                                    </div>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr style="border: 3px solid black; ">
+                                    <td style="border: 3px solid black; ">
+                                    <center>
+                                        วันที่<input type="date" name="วันที่อนุญาติเปิดงาน" >
+                                        <br> 
+                                        เวลา<input type="time" name="เวลาอนุญาติเปิดงาน" >
+                                    </center>
+                                    </td>
+                                    <td style="border: 3px solid black; ">
+                                    <center>
+                                        วันที่<input type="date" name="วันที่อนุญาต" >
+                                        <br> 
+                                        เวลา<input type="time" name="เวลาที่อนุญาต" >
+                                    </center>
+                                    </td>
+                                    <td style="border: 3px solid black; ">
+                                    <center>
+                                        วันที่<input type="date" name="วันที่เลื่อนไป" >
+                                        <br> 
+                                        เวลา<input type="time" name="เวลาเลื่อนไป" >
+                                    </center>
+                                    </td>
+                                </tr>
+                                </tbody>
+                        </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <br>
+                    <div class="form-group">
+                        <p align='left' for="comment">ผลกระทบต่อฝ่ายต่างๆ:</p>
+                        <textarea class="form-control" rows="5" id="comment" name="ผลกระทบต่อฝ่ายต่างๆ"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <br>
+                    <div class="form-group">
+                        <p align='left' for="comment">Work Permit:</p>
+                        <textarea class="form-control" rows="5" id="comment" name="WorkPermit"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align='left'>วันที่รับเอกสาร &nbsp;<%= repairss['วันที่รับเอกสาร'] %> &nbsp;เวลา &nbsp;<%= repairss['เวลาที่รับเอกสาร'] %> </p>
+                </div>
+                <div class="col-sm-5">
+                        <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">ประเมินเวลาที่ใช้ในการซ่อม</span>
+                                </div>
+                                <input class="form-control" name="ประเมินเวลาที่ใช้ในการซ่อม" type="float" >
+                                <p>M/D</p>
+                        </div>
+                </div>
+                <div class="col-sm-3">
+                        <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">จำนวนเวลาที่ใช้</span>
+                                </div>
+                                <input class="form-control" name="จำนวนเวลาที่ใช้" type="float" >
+                                <p>ชม.</p>
+                        </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <br>
+                    <label>วันที่ประเมินวัสดุ</label>
+                    <input type="date" name="วันที่ประเมินวัสดุ" >
+                    &nbsp;
+                </div>
+                <div class="col-sm-3">
+                    <br>
+                    <label>วันที่สั่งซื้อวัสดุ</label>
+                    <input type="date" name="วันที่สั่งซื้อวัสดุ" >
+                    &nbsp;
+                </div>
+                <div class="col-sm-3">
+                    <br>
+                    <label>วันที่วัสดุครบพร้อมเริ่มงาน</label>
+                    <input type="date" name="วันที่วัสดุครบพร้อมเริ่มงาน" >
+                    &nbsp;
+                </div>
+                <div class="col-sm-3">
+                    <br>
+                    <label>กำหนดเสร็จ</label>
+                    <input type="date" name="กำหนดเสร็จ" >
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <p align='left'>การตรวจซ่อมเครื่องจักร&nbsp;&nbsp;&nbsp;
+                        <input type="radio" value="ซ่อมภายในบริษัท" name="การตรวจซ่อมเครื่องจักร" required> ซ่อมภายในบริษัท
+                        &nbsp;&nbsp;
+                        <input type="radio" value="ส่งซ่อมภายนอกบริษัท" name="การตรวจซ่อมเครื่องจักร" required> ส่งซ่อมภายนอกบริษัท
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="comment">วิเคราะห์สาเหตุ</label>
+                            <textarea class="form-control" rows="5" id="comment" name="วิเคราะห์สาเหตุ" required></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="comment">รายละเอียดการซ่อม</label>
+                            <textarea class="form-control" rows="5" id="comment" name="รายละเอียดการซ่อม" required></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="comment">อะไหล่/วัสดุอุปกรณ์ที่ต้องใช้</label>
+                            <textarea class="form-control" rows="5" id="comment" name="อะไหล่วัสดุอุปกรณ์ที่ต้องใช้" required></textarea>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">ผู้ปฏิบัติงานซ่อม</span>
+                            </div>
+                            <input class="form-control" name="ผู้ปฏิบัติงานซ่อม" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <br>
+                    <label>เริ่มดำเนินการซ่อมวันที่</label>
+                    <input type="date" name="เริ่มดำเนินการซ่อมวันที่" required>
+                    &nbsp;
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label>เวลา</label>
+                    <br>
+                    <input type="time" name="เริ่มดำเนินการซ่อมเวลา" required>
+                    &nbsp;
+                </div>
+                <div class="col-sm-3">
+                    <br>
+                    <label>ซ่อมเสร็จวันที่</label>
+                    <input type="date" name="ซ่อมเสร็จวันที่" required>
+                    &nbsp;
+                </div>
+                <div class="col-sm-2">
+                    <br>
+                    <label>เวลา</label>
+                    <br>
+                    <input type="time" name="ซ่อมเสร็จเวลา" required>
+                    &nbsp;
+                </div>
+                <div class="col-sm-2">
+                    <br><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">รวม</span>
+                        </div>
+                        <input class="form-control" name="รวมเวลาซ่อม" type="float" required>
+                        <p>ชม.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <p align='left'><b>การส่งมอบงาน</b></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">ข้อคิดเห็นเพิ่มเติม</span>
+                        </div>
+                        <input class="form-control" name="ข้อคิดเห็นเพิ่มเติม" >
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="usr">ผู้ส่งมอบงาน</label>
+                        <input type="text" class="form-control" id="usr" name="ผู้ส่งมอบงาน" pattern="[a-zA-Zก-ุฯ-๙\s]*" required>
+                        <p>ผู้ปฏิบัติงาน / หนง.</p>
+                    </div>
+                    <label>วันที่</label>
+                    <input type="date" name="วันที่ผู้ส่งมอบงาน" >
+                    <br>
+                    <label>เวลา</label>
+                    <input type="time" name="เวลาผู้ส่งมอบงาน" >
+                    &nbsp;
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="usr">ผู้รับมอบงาน</label>
+                        <input type="text" class="form-control" id="usr" name="ผู้รับมอบงาน" pattern="[a-zA-Zก-ุฯ-๙\s]*" required>
+                        <label for="usr">หนง./หนผ./ผจก.ฝ่าย<input type="text" class="form-control" id="usr" name="ผจกฝ่ายผู้รับมอบงาน"></label>
+                    </div>
+                    <label>วันที่</label>
+                    <input type="date" name="วันที่ผู้รับมอบงาน" >
+                    <br>
+                    <label>เวลา</label>
+                    <input type="time" name="เวลาผู้รับมอบงาน" >
+                    &nbsp;
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="usr">ผู้อนุมัติปิดงาน</label>
+                        <input type="text" class="form-control" id="usr" name="ผู้อนุมัติปิดงาน" pattern="[a-zA-Zก-ุฯ-๙\s]*" required>
+                        <p>หนง. / หนผ.</p>
+                    </div>
+                    <label>วันที่</label>
+                    <input type="date" name="วันที่ผู้อนุมัติปิดงาน" >
+                    <br>
+                    <label>เวลา</label>
+                    <input type="time" name="เวลาผู้อนุมัติปิดงาน" >
+                    &nbsp;
+                </div>
+            </div>
+
+
+        <center>
+        
+            <input type="hidden" value="ปิดงานแล้ว" name="status">
+            <input type="hidden" id="savedate" name="สถานะ3">
+            <input type="hidden" id="savedate" name="อัพเดทล่าสุด">
+            <input type="hidden" id="savetimes" name="เวลาอัพเดทสถานะ">
+            <script>
+                var date = new Date();
+                document.getElementById("showtimes").innerText = "วันที่ "+ date.getDate() + "-" +
+                (parseInt(date.getMonth())+1) + "-" +
+                date.getFullYear() + " " + "เวลา "+ date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")+ " น.";
+
+                document.getElementById("savedate").value = date.getDate() + "-" +
+                (parseInt(date.getMonth())+1) + "-" + date.getFullYear();
+
+                document.getElementById("savetimes").value = date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")+ " น."; 
+            </script>
+            <button class="btn btn-success btn-lg">ปิดงาน</button>
+            <!-- onclick="myFunction()" -->
+            <br>
+        </form>
+        <form action="/deleteform/<%= repairss['_id'] %>" method="post">
+            <p align='right'><button class="btn btn-danger">ยกเลิก</button></p>
+</form>
+        </center>
+
+            </div>
+    </center>
+</body>
+
+</html>

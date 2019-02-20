@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    </head>
+    <body>
+
+        <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+        <script src="semantic/dist/semantic.min.js"></script>
+
+        <style>
+            .grid-container {
+              display: grid;
+              grid-template-columns: auto auto auto auto;
+              grid-gap: 10px;
+              /*background-color: #2196F3;*/
+              /*padding: 10px;*/
+            }
+            .grid-container > div {
+              background-color: rgba(255, 255, 255, 0.8);
+              /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+              text-align: center;
+              /*padding: 20px 0;*/
+              /*font-size: 5px;*/
+            }
+/*            .item1 {
+              grid-column-start: 1;
+              grid-column-end: 1.75;
+            }
+            .item2 {
+              grid-column-start: 1.75;
+              grid-column-end: 2.5;
+            }*/
+            .item3 {
+              grid-column-start: 10Cm;
+              grid-column-end: 21cm;
+              font-size: 15px;
+            }
+            table, td, th {
+                border: 1px solid black;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th {
+                /*padding: 10px;*/
+            }
+            td {
+                padding: 5px;
+            }
+        </style>
+<div style="width: 21cm; border: 1px solid white;">
+    <center><h3>ใบแจ้งซ่อม</h3></center>
+    <div class="grid-container">
+        <div class="item7">
+                <label>วันที่</label>
+                <label>....................11/3/59.......................</label>
+                <br>
+                <label>จาก&nbsp;&nbsp;&nbsp;</label>
+                <label><%= repairss['แผนก'] %></label>
+                <label>&nbsp;&nbsp;&nbsp;</label>
+                <label><%= repairss['ฝ่าย'] %></label>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="item8" style="border: 1px solid black;">
+            <center>
+                <label>สำหรับฝ่ายวิศวกรรม</label> 
+                <br>
+                <label>job No.</label>
+                <label>
+                    <!-- <input class="form-control" type="text" placeholder="Readonly input here…" readonly> -->
+                </label>
+            </center>
+        </div>
+    </div>
+</div>
+<br>
+<label>========================================================================</label>
+<div style="width: 21cm; border: 1px solid white;">
+    <label>ชื่อเครื่องจักร&nbsp;&nbsp;&nbsp;</label>
+    <label><%= repairss['ชื่อเครื่องจักร'] %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <label>รหัสเครื่องจักร&nbsp;&nbsp;&nbsp;</label>
+    <label><%= repairss['รหัสเครื่องจักร'] %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <label>สถานที่ตั้ง&nbsp;&nbsp;&nbsp;</label>
+    <label><%= repairss['สถานที่ตั้ง'] %></label>
+    <br>
+    <div class="grid-container">
+        <div class="item8">
+            <label>แจ้งเพื่อ</label>
+        </div>
+        <div class="item9">
+            <% if( repairss['แจ้งเพื่อ'] == 'ซ่อมแซม' ) { %>
+                <label>&#10003; ซ่อมแซม</label>
+                <br>
+                <label>&#x25FB; ปรับแก้</label>
+                <br>
+                <label>&#x25FB; ตรวจสอบ</label>
+                <br>
+                <label>&#x25FB; Emergency</label>
+            <% } %>
+            <% if( repairss['แจ้งเพื่อ'] == 'ปรับแก้' ) { %>
+                <label>&#x25FB; ซ่อมแซม</label>
+                <br>
+                <label>&#10003; ปรับแก้</label>
+                <br>
+                <label>&#x25FB; ตรวจสอบ</label>
+                <br>
+                <label>&#x25FB; Emergency</label>
+            <% } %>
+            <% if( repairss['แจ้งเพื่อ'] == 'ตรวจสอบ' ) { %>
+                <label>&#x25FB; ซ่อมแซม</label>
+                <br>
+                <label>&#x25FB; ปรับแก้</label>
+                <br>
+                <label>&#10003;  ตรวจสอบ</label>
+                <br>
+                <label>&#x25FB; Emergency</label>
+            <% } %>
+            <% if( repairss['แจ้งเพื่อ'] == 'Emergency' ) { %>
+                <label>&#x25FB; ซ่อมแซม</label>
+                <br>
+                <label>&#x25FB; ปรับแก้</label>
+                <br>
+                <label>&#x25FB; ตรวจสอบ</label>
+                <br>
+                <label>&#10003; Emergency</label>
+            <% } %>
+        </div>
+        <div class="item10">
+            <label>อาการที่ปรากฎ</label><label>...............................................................</label>
+            <br>
+            <label><%= repairss['อาการที่ปรากฏ'] %></label>
+            <br>
+            <label>.........................................................................................</label>
+            <br>
+            <label>.........................................................................................</label>
+        </div>
+        <div class="item11">
+            <table>
+                <thead>
+                    <th>เครื่องจักรชำรุด</th>
+                    <th>ระบุวันที่ต้องการเสร็จ</th>
+                </thead>
+                <tbody>
+                    <td>
+                        <label>วันที่ / เวลา</label>
+                        <label><%= repairss['วันที่ชำรุด'] %></label>
+                    </td>
+                    <td>
+                        <label>วันที่ / เวลา</label>
+                        <label><%= repairss['วันต้องการจะเสร็จ'] %></label>
+                    </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <label>สถานะเครื่องจักร</label>
+        <% if( repairss['สถานะเครื่องจักร'] == 'เครื่องจักรหยุดการทำงาน' ) { %>
+        <input type="checkbox" checked>
+        <label>เครื่องจักรหยุดการทำงาน</label>
+        <input type="checkbox">
+        <label>เครื่องจักรกำลังทำงานอยู่</label>
+        <% } %>
+
+        <% if( repairss['สถานะเครื่องจักร'] == 'เครื่องจักรกำลังทำงานอยู่' ) { %>
+            <input type="checkbox" >
+            <label>เครื่องจักรหยุดการทำงาน</label>
+            <input type="checkbox" checked>
+            <label>เครื่องจักรกำลังทำงานอยู่</label>
+        <% } %>
+    </div>
+    <div>
+        <label>ชื่อผู้ประสานงาน</label>
+        <label><%= repairss['ชื่อผู้ประสานงาน'] %></label>
+        <br>
+        <label>ลงชื่อ</label>
+        <label><%= repairss['ชื่อผู้แจ้งซ่อม'] %></label>
+        <label>ผู้แจ้งซ่อม (ตัวบรรจง)</label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>ลงชื่อ</label>
+        <label><%= repairss['ชื่อหัวหน้าแผนก'] %></label>
+        <label>หนง./หนผ./ผจก.ฝ่าย (ตัวบรรจง)</label>
+    </div>
+
+</div>
+<br>
+<label>=======================================================================</label>
+<div style="width: 21cm; border: 1px solid white;">
+        <p>การเปิดงานซ่อม</p>
+
+
+        <center>
+        <form action="/editformfull1/<%= repairss['_id'] %>" method="POST">
+            <input type="hidden" value="ตอบรับเอกสารแล้ว(รอดำเนินการซ่อม)" name="status">
+            <label><input type="radio" value="PM" name="ประเภท" required>PM</label>
+
+            <label><input type="radio" value="VT" name="ประเภท" required>VT</label>
+<br>
+            <label><input type="radio" value="ซ่อม" name="การดำเนินงาน" required>ซ่อม</label>
+
+            <label><input type="radio" value="สร้าง" name="การดำเนินงาน" required>สร้าง</label>
+            <br>
+            <button class="btn btn-success btn-lg">ลงชื่อรับเอกสารแล้ว</button>
+            <br><br><br>
+        </form>
+        </center>
+</div>
+
+    </body>
+</html>

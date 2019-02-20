@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>MACHINE SPEC</title>
+</head>
+	<style>
+		#myTable {
+	    	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	    	border-collapse: collapse;
+	    	width: 80%;
+				margin-left: 120px;
+		}
+
+		#myTable td, #myTable th {
+	    	border: 1px solid #ddd;
+	    	padding: 8px;
+		}
+
+		#myTable tr:nth-child(even){background-color: #f2f2f2;}
+
+		#myTable tr:hover {background-color: #ddd;}
+
+		#myTable th {
+	    	padding-top: 15px;
+	    	padding-bottom: 12px;
+	    	text-align:center;
+	    	background-color: #4CAF50;
+	    	color: white;
+		}
+		#myTable td {
+	    	text-align:justify;
+		}
+		#myInput {
+	    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+	    background-position: 10px 12px; /* Position the search icon */
+	    background-repeat: no-repeat; /* Do not repeat the icon image */
+	    width: 100%; /* Full-width */
+	    font-size: 16px; /* Increase font-size */
+	    padding: 12px 20px 12px 40px; /* Add some padding */
+	    border: 1px solid #ddd; /* Add a grey border */
+	    margin-bottom: 12px; /* Add some space below the input */
+			margin-left: 150px;
+	}
+
+
+	body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #818181;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+	</style>
+<body>
+			<!-- <div class="ui grid"> -->
+		
+
+
+	
+            <br><br><br><br><br>
+            <!--  -->
+            <form action="/accepEditMachine/<%=detail['_id']%>" method="post">
+            <!--  -->
+            <div class="row" style="margin-left: 10%; margin-right: 10% ">
+                    <div class="col-sm-6" style="background-color:lavender;">
+                        <br>
+                        <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="" >ชื่อเครื่องจักร</span>
+                                </div>
+                                    <input type="text" class="form-control"  value="<%= detail['machineName'] %>" name="machineName">
+                            </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="" >ยี่ห้อ</span>
+                            </div>
+                                <input type="text" class="form-control" value="<%= detail['ยี่ห้อ'] %>" name="ยี่ห้อ" >
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Pole</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['pole'] %>" name="pole" >
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Power (HP/W)</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['power'] %>" name="power" >
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Current (Amp.)</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['current'] %>" name="current" >
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">IP.</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['ip'] %>" name="ip">
+                        </div>
+                            <div class="input-group">                                                    
+                                <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Frequency (Hz.)</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['frequency'] %>" name="frequency">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Mech.Seal No.</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['mechsealno'] %>" name="mechsealno">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Flow Rate (l/min)</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['flowrate'] %>" name="flowrate" >
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">วันที่ติดตั้ง</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['วันที่ติดตั้ง'] %>" name="วันที่ติดตั้ง">
+                        </div>
+                    
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">อื่นๆ</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%= detail['ect'] %>" name="ect">
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-sm-6" style="background-color:lavender;">
+                        <br>
+                        <div class="input-group" style="margin-right: 0%">
+                            <div class="input-group-prepend" >
+                                <span class="input-group-text" id="">Model</span>
+                            </div>
+                            <input type="text" class="form-control" style="margin-right: 0%" value="<%= detail['Model'] %>" name="Model">
+                        </div>
+                        <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="">รหัสเครื่องจักร</span>
+                                </div>
+                                <input type="text" class="form-control" value="<%= detail['รหัสเครื่องจักร'] %>" name="รหัสเครื่องจักร">
+                            </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Phase</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['phase'] %>" name="phase">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Voltage (V)</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['voltage'] %>" name="voltage" >
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">RPM.</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['rpm'] %>" name="rpm">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Power Factor (PF)</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['powerfactor'] %>" name="powerfactor" >
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">µF.</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['uf'] %>" name="uf">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Head (m)</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['head'] %>" name="head">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Oil Seal No.</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['oilsealno'] %>" name="oilsealno">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">รายการอะไหล่</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%= detail['รายการอะไหล่'] %>" name="รายการอะไหล่">
+                        </div>
+                        <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="">สถานที่ตั้ง</span>
+                                </div>
+                                <input type="text" class="form-control"  value="<%= detail['สถานที่ตั้ง'] %>" name="สถานที่ตั้ง">
+                            </div>
+                       
+                   
+                        <br><br><center><a class="btn btn-success btn-lg" href="/historymachine">กลับ</a>
+                            <button class="btn btn-success btn-lg" type="submit" >ตกลง</button></center>   
+                    </div>
+            </div>
+
+        </form>
+			<center>
+
+
+
+	
+		<br>
+		<br>
+		<!-- </div> -->
+</div>
+
+
+</body>
+
+
+</html>

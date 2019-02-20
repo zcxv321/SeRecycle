@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<title>History Machine</title>
+</head>
+	<style>
+		#myTable {
+	    	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	    	border-collapse: collapse;
+	    	width: 50%;
+		}
+
+		#myTable td, #myTable th {
+	    	border: 1px solid #ddd;
+	    	padding: 8px;
+		}
+
+		#myTable tr:nth-child(even){background-color: #f2f2f2;}
+
+		#myTable tr:hover {background-color: #ddd;}
+
+		#myTable th {
+	    	padding-top: 12px;
+	    	padding-bottom: 12px;
+	    	text-align: left;
+	    	background-color: #4CAF50;
+	    	color: white;
+		}
+		#myInput {
+	    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+	    background-position: 10px 12px; /* Position the search icon */
+	    background-repeat: no-repeat; /* Do not repeat the icon image */
+	    width: 100%; /* Full-width */
+	    font-size: 16px; /* Increase font-size */
+	    padding: 12px 20px 12px 40px; /* Add some padding */
+	    border: 1px solid #ddd; /* Add a grey border */
+	    margin-bottom: 12px; /* Add some space below the input */
+	}
+	</style>
+<body>
+			<br><br><br>
+			<center><h1>ประวัติเครื่องจักร</h1></center>
+            <!-- <br><br><br> -->
+            <br>
+            <div class="row" style="margin-left: 10%; margin-right: 10% ">
+                    <div class="col-sm-6" style="background-color:lavender;">
+                        <br>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">ยี่ห้อ</span>
+                            </div>
+                                <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Pole</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Power (HP/W)</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Current (Amp.)</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">IP.</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                            <div class="input-group">                                                    <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Frequency (Hz.)</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Mech.Seal No.</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Flow Rate (l/min)</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">วันที่ติดตั้ง</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">1</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">3</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">อื่นๆ</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-sm-6" style="background-color:lavender;">
+                        <br>
+                        <div class="input-group" style="margin-right: 0%">
+                            <div class="input-group-prepend" >
+                                <span class="input-group-text" id="">Model</span>
+                            </div>
+                            <input type="text" class="form-control" style="margin-right: 0%">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Phase</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Voltage (V)</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">RPM.</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Power Factor (PF)</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">µF.</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Head (m)</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Oil Seal No.</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">รายการอะไหล่</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">2</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">4</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                        <br>
+                    </div>
+            </div>
+            <center><button class="btn btn-success btn-lg">ตกลง</button></center>    
+</body>
+<script>
+</script>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>User View</title>
+
+</head>
+	<style>
+		#myTable {
+	    	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	    	border-collapse: collapse;
+	    	width: 70%;
+		}
+
+		#myTable td, #myTable th {
+	    	border: 1px solid #ddd;
+	    	padding: 8px;
+		}
+
+		#myTable tr:nth-child(even){background-color: #f2f2f2;}
+
+		#myTable tr:hover {background-color: #ddd;}
+
+		#myTable th {
+	    	padding-top: 12px;
+	    	padding-bottom: 12px;
+	    	text-align: center;
+	    	background-color: #4CAF50;
+	    	color: white;
+		}
+		#myInput {
+	    background-image: url('/css/searchicon.jpg'); /* Add a search icon to input */
+	    background-position: 10px 12px; /* Position the search icon */
+	    background-repeat: no-repeat; /* Do not repeat the icon image */
+	    width: 100%; /* Full-width */
+	    font-size: 16px; /* Increase font-size */
+	    padding: 12px 20px 12px 40px; /* Add some padding */
+	    border: 1px solid #ddd; /* Add a grey border */
+	    margin-bottom: 12px; /* Add some space below the input */
+	}
+
+		div.a {
+				white-space: nowrap; 
+				width: 100px; 
+				overflow: hidden;
+				text-overflow:ellipsis;
+				/* border: 1px solid #000000; */
+		}
+		
+		div.a:hover {
+				overflow: visible;
+		}
+
+	</style>
+<body>
+			<!-- <div class="ui grid"> -->
+
+
+
+			<br><br><br>
+			<center><img src="logo.jpg" alt="" style="width: 500px"></center>
+			<!-- <br><br><br> -->
+			<div style="margin: 15px 17% 15px 70%"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="ค้นหา...."></div>
+			<center>
+			<table id="myTable">
+		  <tr>
+		  	<th>Job No.</th>
+				<th>วันที่แจ้งซ่อม</th>
+				<th>เวลาที่แจ้งซ่อม</th>
+		    <th>รายการแจ้ง</th>
+		    <th>สถานะ</th>
+				<th>วันที่อัพเดทสถานะ</th>
+				<th>เวลาอัพเดทสถานะ</th>
+			</tr>
+			<% for(var i=0;i<repairss.length;i++) {%>
+				<tr>
+				<td><%= repairss[i]['นับประเภท'] %></td>
+				<td><%= repairss[i]['วันที่แจ้งซ่อม'] %></td>
+				<td><%= repairss[i]['เวลาที่แจ้งซ่อม'] %></td>
+				<td><div class="a"><%= repairss[i]['อาการที่ปรากฏ'] %></div></td>
+				<td><%= repairss[i]['status'] %></td>
+				<td><%= repairss[i]['อัพเดทล่าสุด'] %></td>
+				<td><%= repairss[i]['เวลาอัพเดทสถานะ'] %></td>
+
+			</tr>
+				<% } %>
+			
+		  <!-- <tr>
+		  	<td><a href="/formfull1">PM1/61</a></td>
+				<td>26/7/18</td>
+		    <td>แท้งน้ำรั่ว</td>
+		    <td>รอตอบรับเอกสาร</td>
+				<td>28/7/18</td>
+
+		  </tr> -->
+		</table>
+		</center>
+		<br>
+		<br>
+		<center><div class="container">
+        <a href="/form">
+          <button type="button" class="btn btn-success btn-lg" >แจ้งซ่อม</button>
+        </a>
+        <a href="/loginform">
+          <button type="button" class="btn btn-success btn-lg">เข้าสู่ระบบ</button>
+        </a>
+		</div></center>
+		<!-- </div> -->
+
+
+
+
+</body>
+	<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i,td1,td2,td3;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[0];
+		td1 = tr[i].getElementsByTagName("td")[2];
+		td2 = tr[i].getElementsByTagName("td")[3];
+    if (td || td1 || td2) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1 ||td1.innerHTML.toUpperCase().indexOf(filter) > -1 ||td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+</html>

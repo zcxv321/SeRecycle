@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ใบแจ้งซ่อม1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+    <style>
+        .break {
+            word-break: break-all;
+        }
+
+        p {
+                margin: 1%;
+                font: 17px sans-serif;
+            }
+    </style>
+    <center>
+        <!-- <p align='left' id="showtimes"></p> -->
+        <div style="width: 30cm" class="shadow p-4 mb-4 bg-white">
+            <h4>ใบแจ้งซ่อม</h4>
+            <div class="row">
+                <div class="col-sm-8">
+                    <p align='left'>
+                        <%= repairss['วันที่แจ้งซ่อม'] %>
+                    </p>
+                    <p align='left' class="break">จาก แผนก
+                        <%= repairss['แผนก'] %> &nbsp;&nbsp; ฝ่าย
+                        <%= repairss['ฝ่าย'] %>
+                    </p>
+                </div>
+                <div class="col-sm-4" style="border: 1px solid black;">
+                    <p>สำหรับฝ่ายวิศวกรรม</p>
+                    <p align='left'>Job No. &nbsp;
+                        <%= repairss['นับประเภท'] %>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <p align='left'>ชื่อเครื่องจักร&nbsp;&nbsp;
+                        <%= repairss['ชื่อเครื่องจักร'] %>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <p align='left'>รหัสเครื่องจักร&nbsp;&nbsp;
+                        <%= repairss['รหัสเครื่องจักร'] %>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <p align='left'>สถานที่ตั้ง&nbsp;&nbsp;
+                        <%= repairss['สถานที่ตั้ง'] %>
+                    </p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <p>แจ้งเพื่อ</p>
+                </div>
+                    <div class="col-sm-2">
+                        <% if( repairss['แจ้งเพื่อ'] == 'ซ่อมแซม' ) { %>
+                        <p align='left'>&#10003; ซ่อมแซม</p>
+                        <p align='left'>&#x25FB; ปรับแก้</p>
+                        <p align='left'>&#x25FB; ตรวจสอบ</p>
+                        <p align='left'>&#x25FB; Emergency</p>
+                        <% } %>
+                        <% if( repairss['แจ้งเพื่อ'] == 'ปรับแก้' ) { %>
+                        <p align='left'>&#x25FB; ซ่อมแซม</p>
+                        <p align='left'>&#10003; ปรับแก้</p>
+                        <p align='left'>&#x25FB; ตรวจสอบ</p>
+                        <p align='left'>&#x25FB; Emergency</p>
+                        <% } %>
+                        <% if( repairss['แจ้งเพื่อ'] == 'ตรวจสอบ' ) { %>
+                        <p align='left'>&#x25FB; ซ่อมแซม</p>
+                        <p align='left'>&#x25FB; ปรับแก้</p>
+                        <p align='left'>&#10003; ตรวจสอบ</p>
+                        <p align='left'>&#x25FB; Emergency</p>
+                        <% } %>
+                        <% if( repairss['แจ้งเพื่อ'] == 'Emergency' ) { %>
+                        <p align='left'>&#x25FB; ซ่อมแซม</p>
+                        <p align='left'>&#x25FB; ปรับแก้</p>
+                        <p align='left'>&#x25FB; ตรวจสอบ</p>
+                        <p align='left'>&#10003; Emergency</p>
+                        <% } %>
+                    </div>
+                    <div class="col-sm-3">
+                        <p align='left' class="break">อาการที่ปรากฎ&nbsp;&nbsp;
+                            <%= repairss['อาการที่ปรากฏ'] %>
+                        </p>
+                    </div>
+                    <div class="col-sm-5">
+                        <table>
+                            <thead style="border: 1px solid black; ">
+                                <th style="border: 1px solid black;"><p>เครื่องจักรชำรุด</p></th>
+                                <th style="border: 1px solid black;"><p>ระบุวันที่ต้องการเสร็จ</p></th>
+                            </thead>
+                            <tbody style="border: 1px solid black;">
+                                <td style="border: 1px solid black;">
+                                    <center>
+                                        <p>วันที่ / เวลา</p>
+                                    </center>
+                                    <center>
+                                        <p>
+                                            <%= repairss['วันที่ชำรุด'] %> / <%= repairss['เวลาชำรุด'] %> &nbsp;
+                                        </p>
+                                    </center>
+                                </td>
+                                <td style="border: 1px solid black;">
+                                    <center>
+                                        <p>วันที่ / เวลา</p>
+                                    </center>
+                                    <center>
+                                        <p>
+                                            <%= repairss['วันต้องการจะเสร็จ'] %> / <%= repairss['เวลาต้องการจะเสร็จ'] %> &nbsp;
+                                        </p>
+                                    </center>
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+            </div>
+
+            <div class="row">
+                <!-- <div class="col-sm-2">
+                    <p align='left'>สถานะเครื่องจักร</p>
+                </div> -->
+                <% if( repairss['สถานะเครื่องจักร'] == 'เครื่องจักรหยุดการทำงาน' ) { %>
+                    <div class="col-sm-10">
+                    <p align='left'> สถานะเครื่องจักร&nbsp;&nbsp;&nbsp;&nbsp; &#10003; เครื่องจักรหยุดการทำงาน &nbsp;&nbsp; &#x25FB; เครื่องจักรกำลังทำงานอยู่</p>
+                    </div>
+                <% } %>
+                <% if( repairss['สถานะเครื่องจักร'] == 'เครื่องจักรกำลังทำงานอยู่' ) { %>
+                    <div class="col-sm-10">
+                    <p align='left'>สถานะเครื่องจักร&nbsp;&nbsp;&nbsp;&nbsp;  &#x25FB; เครื่องจักรหยุดการทำงาน &nbsp;&nbsp; &#10003; เครื่องจักรกำลังทำงานอยู่</p>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <p align='left'>ชื่อผู้ประสานงาน &nbsp;&nbsp; <%= repairss['ชื่อผู้ประสานงาน'] %></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <p>ลงชื่อ &nbsp;&nbsp; <%= repairss['ชื่อผู้แจ้งซ่อม'] %> &nbsp;&nbsp; ผู้แจ้งซ่อม</p>
+                </div>
+                <div class="col-sm-7">
+                    <p>ลงชื่อ &nbsp;&nbsp; <%= repairss['ชื่อหัวหน้าแผนก'] %> &nbsp;&nbsp; หนง./หนผ./ผจก.ฝ่าย</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;</p>
+                </div>
+            </div>
+            
+
+        <center>
+        <form action="/editformfull1/<%= repairss['_id'] %>" method="post">
+            <input type="hidden" id="savedate" name="สถานะ1">
+            <input type="hidden" id="savedate" name="อัพเดทล่าสุด">
+            <input type="hidden" id="savetimes" name="เวลาอัพเดทสถานะ">
+            <input type="hidden" id="savedate" name="วันที่รับเอกสาร">
+            <input type="hidden" id="savetimes" name="เวลาที่รับเอกสาร">
+
+            <script>
+                var date = new Date();
+                document.getElementById("showtimes").innerText = "วันที่ "+ date.getDate() + "-" +
+                (parseInt(date.getMonth())+1) + "-" +
+                date.getFullYear() + " " + "เวลา "+ date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")+ " น.";
+
+                document.getElementById("savedate").value = date.getDate() + "-" +
+                (parseInt(date.getMonth())+1) + "-" + date.getFullYear();
+
+                document.getElementById("savetimes").value = date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")+ " น."; 
+            </script>
+
+            <input type="hidden" value="รอดำเนินการซ่อม" name="status">
+            <label><input type="radio" value="PM" name="ประเภท" required>PM</label>
+            <label><input type="radio" value="UT" name="ประเภท" required>UT</label>
+            <br>
+            <label><input type="radio" value="ซ่อม" name="การดำเนินงาน" required>ซ่อม</label>
+            <label><input type="radio" value="สร้าง" name="การดำเนินงาน" required>สร้าง</label>
+            <br>
+            <button class="btn btn-success btn-lg">ลงชื่อรับเอกสารแล้ว</button>
+            <br>
+        </form>
+        <form action="/deleteform/<%= repairss['_id'] %>" method="post">
+            <p align='right'><button class="btn btn-danger">ยกเลิก</button></p>
+</form>
+        </center>
+
+            </div>
+    </center>
+</body>
+
+
+
+</html>

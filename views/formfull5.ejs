@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         
+    </head>
+    <body>
+
+        <script>
+                function myFunction() {
+                    window.print();
+                }
+        </script>
+
+        <style>
+            .grid-container {
+              display: grid;
+              grid-template-columns: auto auto auto auto;
+              grid-gap: 10px;
+              /*background-color: #2196F3;*/
+              /*padding: 10px;*/
+            }
+            .grid-container > div {
+              background-color: rgba(255, 255, 255, 0.8);
+              /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+              text-align: center;
+              /*padding: 20px 0;*/
+              /*font-size: 5px;*/
+            }
+/*            .item1 {
+              grid-column-start: 1;
+              grid-column-end: 1.75;
+            }
+            .item2 {
+              grid-column-start: 1.75;
+              grid-column-end: 2.5;
+            }*/
+            .item3 {
+              grid-column-start: 10Cm;
+              grid-column-end: 21cm;
+              font-size: 15px;
+            }
+            table, td, th {
+                border: 1px solid black;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            td {
+                padding: 5px;
+            }
+
+        </style>
+    <div style="width: 21cm; height: 29.7cm; border: 1px solid white;">
+        <center><h3>ใบแจ้งซ่อม</h3></center>
+        <div class="grid-container">
+            <div class="item7">
+                    <label>วันที่</label>
+                    <label>....................11/3/59.......................</label>
+                    <br>
+                    <label>จาก&nbsp;&nbsp;&nbsp;</label>
+                    <label><%= repairss['แผนก'] %></label>
+                    <label>&nbsp;&nbsp;&nbsp;</label>
+                    <label><%= repairss['ฝ่าย'] %></label>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="item8" style="border: 1px solid black;">
+                <center>
+                    <label>สำหรับฝ่ายวิศวกรรม</label>
+                    <br>
+                    <label>job No.</label><label><%= repairss['นับประเภท'] %></label>
+                    <label>
+                        <!-- <input class="form-control" type="text" placeholder="Readonly input here…" readonly> -->
+                    </label>
+                </center>
+            </div>
+        </div>
+    <br>
+    <label>========================================================================================</label>
+    <div style="width: 21cm; border: 1px solid white;">
+        <label>ชื่อเครื่องจักร&nbsp;&nbsp;&nbsp;</label>
+        <label><%= repairss['ชื่อเครื่องจักร'] %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label>รหัสเครื่องจักร&nbsp;&nbsp;&nbsp;</label>
+        <label><%= repairss['รหัสเครื่องจักร'] %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label>สถานที่ตั้ง&nbsp;&nbsp;&nbsp;</label>
+        <label><%= repairss['สถานที่ตั้ง'] %></label>
+        <br>
+        <div class="grid-container">
+            <div class="item8">
+                <label>แจ้งเพื่อ</label>
+            </div>
+            <div class="item9">
+                <% if( repairss['แจ้งเพื่อ'] == 'ซ่อมแซม' ) { %>
+                    <input type="checkbox" checked>
+                    <label>ซ่อมแซม</label>
+                    <br>
+                    <input type="checkbox">
+                    <label>ปรับแก้</label>
+                    <br>
+                    <input type="checkbox">
+                    <label>ตรวจสอบ</label>
+                    <br>
+                    <input type="checkbox">
+                    <label>Emergency</label>
+                <% } %>
+                <% if( repairss['แจ้งเพื่อ'] == 'ปรับแก้' ) { %>
+                        <input type="checkbox" >
+                        <label>ซ่อมแซม</label>
+                        <br>
+                        <input type="checkbox" checked>
+                        <label>ปรับแก้</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>ตรวจสอบ</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>Emergency</label>
+                <% } %>
+                <% if( repairss['แจ้งเพื่อ'] == 'ตรวจสอบ' ) { %>
+                        <input type="checkbox" >
+                        <label>ซ่อมแซม</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>ปรับแก้</label>
+                        <br>
+                        <input type="checkbox" checked>
+                        <label>ตรวจสอบ</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>Emergency</label>
+                <% } %>
+                <% if( repairss['แจ้งเพื่อ'] == 'Emergency' ) { %>
+                        <input type="checkbox" >
+                        <label>ซ่อมแซม</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>ปรับแก้</label>
+                        <br>
+                        <input type="checkbox">
+                        <label>ตรวจสอบ</label>
+                        <br>
+                        <input type="checkbox" checked>
+                        <label>Emergency</label>
+                <% } %>
+            </div>
+            <div class="item10">
+                <label>อาการที่ปรากฎ</label><label>...............................................................</label>
+                <br>
+                <label><%= repairss['อาการที่ปรากฏ'] %></label>
+                <br>
+                <label>.........................................................................................</label>
+                <br>
+                <label>.........................................................................................</label>
+            </div>
+            <div class="item11">
+                <table>
+                    <thead>
+                        <th>เครื่องจักรชำรุด</th>
+                        <th>ระบุวันที่ต้องการเสร็จ</th>
+                    </thead>
+                    <tbody>
+                        <td>
+                            <label>วันที่ / เวลา</label>
+                            <label><%= repairss['วันที่ชำรุด'] %></label>
+                        </td>
+                        <td>
+                            <label>วันที่ / เวลา</label>
+                            <label><%= repairss['วันต้องการจะเสร็จ'] %></label>
+                        </td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+        <label>สถานะเครื่องจักร</label>
+            <% if( repairss['สถานะเครื่องจักร'] == 'เครื่องจักรหยุดการทำงาน' ) { %>
+            <input type="checkbox" checked>
+            <label>เครื่องจักรหยุดการทำงาน</label>
+            <input type="checkbox">
+            <label>เครื่องจักรกำลังทำงานอยู่</label>
+            <% } %>
+    
+            <% if( repairss['สถานะเครื่องจักร'] == 'เครื่องจักรกำลังทำงานอยู่' ) { %>
+                <input type="checkbox" >
+                <label>เครื่องจักรหยุดการทำงาน</label>
+                <input type="checkbox" checked>
+                <label>เครื่องจักรกำลังทำงานอยู่</label>
+            <% } %>
+        </div>
+        <div>
+            <label>ชื่อผู้ประสานงาน</label>
+            <label><%= repairss['ชื่อผู้ประสานงาน'] %></label>
+            <br>
+            <label>ลงชื่อ</label>
+            <label><%= repairss['ชื่อผู้แจ้งซ่อม'] %></label>
+            <label>ผู้แจ้งซ่อม (ตัวบรรจง)</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>ลงชื่อ</label>
+            <label><%= repairss['ชื่อหัวหน้าแผนก'] %></label>
+            <label>หนง./หนผ./ผจก.ฝ่าย (ตัวบรรจง)</label>
+        </div>
+    
+    </div>
+    <br>
+<label>========================================================================================</label>
+
+    <div style="width: 21cm; border: 1px solid white;">
+            <div>                                                          <!-- 1 -->
+                <b>สำหรับฝ่ายวิศวกรรม</b>
+                <br><br>
+                <label>ชื่อผู้ดำเนินการ : <%= repairss['ชื่อผู้ดำเนินการ'] %></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>ผู้มอบหมาย : <%= repairss['ผู้มอบหมาย'] %>หนผ.</label>
+                <% if( repairss['การดำเนินงาน'] == 'ซ่อม' ) { %>
+                    <input type="checkbox" >
+                    <label>สร้าง</label>
+                    <input type="checkbox" checked>
+                    <label>ซ่อม</label>
+                <% } %>
+                <% if( repairss['การดำเนินงาน'] == 'สร้าง' ) { %>
+                    <input type="checkbox" checked>
+                    <label>สร้าง</label>
+                    <input type="checkbox" >
+                    <label>ซ่อม</label>
+                <% } %>
+
+            </div>
+            <p>การเปิดงานซ่อม</p>
+            <div>                                                         <!-- การเปิดงานซ่อม -->
+                <div class="grid-container">
+                    <div class="item1">
+                        <center>
+                            <label>ผู้สั่งงาน / ผู้อนุมัติเปิดงาน</label>
+                            <br><br>
+                            <label><%= repairss['ผู้สั่งงานผู้อนุมัติเปิดงาน'] %></label>
+                            <br>
+                            <label>หนง. / หนผ.</label>
+                        </center>
+                    </div>
+                    <div class="item2">
+                        <center>
+                            <label>ฝ่ายผู้ใช้เครื่องจักรอนุญาต</label>
+                            <br><br>
+                            <label><%= repairss['ฝ่ายผู้ใช้เครื่องจักรอนุญาต'] %></label>
+                            <br>
+                            <label>หนง. / หนผ. /</label>
+                            <br><br>
+                            <label>ผจก.ฝ่าย <%= repairss['ผจกฝ่ายฝ่ายผู้ใช้เครื่องจักรอนุญาต'] %></label>
+                        </center>
+                    </div>
+                    <div class="item3">
+                            <table>
+                                    <thead>
+                                    <tr>
+                                        <th rowspan="2">วันที่อนุมัติเปิดงาน(ผู้สั่งงาน)</th>
+                                        <th colspan="3">วันที่อนุญาตให้ซ่อมเครื่อง    (ผู้ใช้เครื่อง)</th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                        <input type="checkbox">
+                                        <label>อนุญาต</label></th>
+                                        <th><input type="checkbox">
+                                        <label>เลื่อนไป<br>ลงชื่อ  <%= repairss['เลื่อนไปลงชื่อ'] %></label></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>วันที่....................</td>
+                                        <td>วันที่....................</td>
+                                        <td>วันที่....................</td>
+                                    </tr>
+                                    <tr>
+                                        <td>เวลา....................</td>
+                                        <td>เวลา....................</td>
+                                        <td>เวลา....................</td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="grid-container">
+                <div class="item4">
+                    <input type="checkbox">
+                    <label>ผลกระทบต่อฝ่ายต่างๆ <%= repairss['ผลกระทบต่อฝ่ายต่างๆ'] %></label>
+                </div>
+                <div class="item5">
+                    <input type="checkbox">
+                    <label>Work Permit<%= repairss['WorkPermit'] %></label>
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="item6">
+                    <label>วันที่รับเอกสาร...13/6/59....</label>
+                </div>
+                <div class="item7">
+                    <label>เวลา..12.00..</label>
+                </div>
+                <div class="item8">
+                    <label>ประเมินเวลาที่ใช้ในการซ่อม<%= repairss['ประเมินเวลาที่ใช้ในการซ่อม'] %>M/D</label>
+                </div>
+                <div class="item9">
+                    <label>จำนวนเวลาที่ใช้<%= repairss['จำนวนเวลาที่ใช้'] %>ชม.</label>
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="item6">
+                    <label>วันที่ประเมินวัสดุ<%= repairss['วันที่ประเมินวัสดุ'] %></label>
+                </div>
+                <div class="item7">
+                    <label>วันที่สั่งซื้อวัสดุ<%= repairss['วันที่สั่งซื้อวัสดุ'] %></label>
+                </div>
+                <div class="item8">
+                    <label>วันที่วัสดุครบพร้อมเริ่มงาน<%= repairss['วันที่วัสดุครบพร้อมเริ่มงาน'] %></label>
+                </div>
+                <div class="item9">
+                    <label>กำหนดเสร็จ<%= repairss['กำหนดเสร็จ'] %>ชม.</label>
+                </div>
+            </div>
+            <div>
+                <label>การตรวจซ่อมเครื่องจักร</label>
+                <input type="checkbox" name="">
+                <label>ซ่อมภายในบริษัท</label>
+                <input type="checkbox" name="">
+                <label>ส่งซ่อมภายนอกบริษัท</label>
+            </div>
+            <div>
+                <label>วิเคราะห์สาเหตุ<%= repairss['วิเคราะห์สาเหตุ'] %></label>
+            </div>
+            <div>
+                <label>รายละเอียดการซ่อม<%= repairss['รายละเอียดการซ่อม'] %></label>
+            </div>
+            <div>
+                <label>อะไหล่/วัสดุอุปกรณ์ที่ต้องใช้<%= repairss['อะไหล่วัสดุอุปกรณ์ที่ต้องใช้'] %></label>
+            </div>
+            <div>
+                <label>ผู้ปฏิบัติงานซ่อม</label>
+                <label>1)<%= repairss['ผู้ปฏิบัติงานซ่อมi'] %></label>
+                <label>2)<%= repairss['ผู้ปฏิบัติงานซ่อมii'] %></label>
+                <label>3)<%= repairss['ผู้ปฏิบัติงานซ่อมiii'] %></label>
+            </div>
+            <div>
+                <label>เริ่มดำเนินการซ่อมวันที่<%= repairss['เริ่มดำเนินการซ่อมวันที่'] %></label>
+                <label>เวลา.................</label>
+                <label>ซ่อมเสร็จวันที่<%= repairss['ซ่อมเสร็จวันที่'] %></label>
+                <label>เวลา....................</label>
+                <label>รวม<%= repairss['รวมเวลาซ่อม'] %>ชม.</label>
+            </div>
+    </div>
+
+<br>
+<label>========================================================================================</label>
+<div style="width: 21cm; border: 1px solid white;">
+    <b>การส่งมอบงาน</b>
+    <br><br>
+    <label>ข้อคิดเห็นเพิ่มเติม<%= repairss['ข้อคิดเห็นเพิ่มเติม'] %></label>
+    <br>
+    <div>       
+        <div class="grid-container">
+            <div class="item4">
+                <center>
+                    <label>ผู้ส่งมอบงาน</label>
+                    <br><br>
+                    <label><%= repairss['ผู้ส่งมอบงาน'] %></label>
+                    <br>
+                    <label>ผู้ปฏิบัติงาน / หนง.</label>
+                    <br><br>
+                    <label>วันที่<%= repairss['วันที่ผู้ส่งมอบงาน'] %></label>
+                    <label>เวลา...........</label>
+                </center>
+            </div>
+            <div class="item5">
+                <center>
+                    <label>ผู้รับมอบงาน</label>
+                    <br><br>
+                    <label><%= repairss['ผู้รับมอบงาน'] %></label>
+                    <br>
+                    <label>หนง. / หนผ. /</label>
+                    <br><br>
+                    <label>ผจก.ฝ่าย<%= repairss['ผจกฝ่ายผู้รับมอบงาน'] %></label>
+                    <br><br>
+                    <label>วันที่<%= repairss['วันที่ผู้รับมอบงาน'] %></label>
+                    <label>เวลา...........</label>
+                </center>
+            </div>
+            <div class="item6">
+                <center>
+                    <label>ผู้อนุมัติปิดงาน</label>
+                    <br><br>
+                    <label><%= repairss['ผู้อนุมัติปิดงาน'] %></label>
+                    <br>
+                    <label>หนง. / หนผ. /</label>
+                    <br><br>
+                    <label>วันที่<%= repairss['วันที่ผู้อนุมัติปิดงาน'] %></label>
+                    <label>เวลา...........</label>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+            <br>
+            <center>
+            <button onclick="myFunction()">Print this page</button>
+            <!-- <form action="/formfull4/<%= repairss['_id'] %>" method="POST"> -->
+                <!-- <a href="/formfull4/<%= repairss['_id'] %>">กรอกข้อมูลปิดงาน -->
+            <!-- </form> -->
+            <br><br><br>
+            
+            
+            </center>
+    </body>
+</html>

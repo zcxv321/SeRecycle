@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<title>Admin Menu</title>
+</head>
+	<style>
+		#myTable {
+	    	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	    	border-collapse: collapse;
+	    	width: 65%;
+		}
+
+		#myTable td, #myTable th {
+	    	border: 1px solid #ddd;
+	    	padding: 8px;
+				text-align: center;
+
+		}
+
+		#myTable tr:nth-child(even){background-color: #f2f2f2;}
+
+		#myTable tr:hover {background-color: #ddd;}
+
+		#myTable th {
+	    	padding-top: 12px;
+	    	padding-bottom: 12px;
+	    	text-align: center;
+	    	background-color: #4CAF50;
+	    	color: white;
+		}
+		#myInput {
+	    background-image: url('/css/searchicon.jpg'); /* Add a search icon to input */
+	    background-position: 10px 12px; /* Position the search icon */
+	    background-repeat: no-repeat; /* Do not repeat the icon image */
+	    width: 100%; /* Full-width */
+	    font-size: 16px; /* Increase font-size */
+	    padding: 12px 20px 12px 40px; /* Add some padding */
+	    border: 1px solid #ddd; /* Add a grey border */
+	    margin-bottom: 12px; /* Add some space below the input */
+	}
+
+
+			body {
+				font-family: "Lato", sans-serif;
+		}
+
+		.sidenav {
+				height: 100%;
+				width: 200px;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				background-color: #4CAF50;
+				overflow-x: hidden;
+				padding-top: 0px;
+		}
+
+		.sidenav a {
+				padding: 6px 6px 6px 32px;
+				text-decoration: none;
+				font-size: 15px;
+				color: #818181;
+				display: block;
+		}
+
+		.sidenav a:hover {
+				color: #f1f1f1;
+		}
+
+		.main {
+				margin-left: 200px; /* Same as the width of the sidenav */
+		}
+
+		@media screen and (max-height: 450px) {
+			.sidenav {padding-top: 15px;}
+			.sidenav a {font-size: 18px;}
+		}
+		div.a {
+				white-space: nowrap; 
+				width: 100px; 
+				overflow: hidden;
+				text-overflow:ellipsis;
+				/* border: 1px solid #000000; */
+		}
+		
+		div.a:hover {
+				overflow: visible;
+		}
+
+	</style>
+<body>
+			<!-- <div class="ui grid"> -->
+			<div class="sidenav">
+					<center>
+							<img src="company_logo.jpg" style="width: 200px">
+					</center>
+
+					<div class="list-group" >
+						<a href="/historyrepair" class="list-group-item list-group-item-action list-group-item-secondary">ประวัติการซ่อม</a>
+						<a href="/historymachine" class="list-group-item list-group-item-action list-group-item-secondary">ประวัติเครื่องจักร</a>
+						<!-- <a href="/personnelform" class="list-group-item list-group-item-action list-group-item-secondary">จัดการบุคคลากร</a> -->
+						<a href="/formChangePassword" class="list-group-item list-group-item-action list-group-item-secondary">เปลี่ยนรหัสผ่าน</a>
+						<a href="/" class="list-group-item list-group-item-action list-group-item-secondary">กลับไปหน้าแรก</a>
+						<br>
+						<center>
+							<form method="get" action="/logout">
+								<button type="submit" class="btn btn-danger">Logout</button>
+							</form>
+						</center>
+					</div>
+			</div>
+
+			<!-- <nav class="navbar navbar-inverse">
+					<ul class="nav navbar-nav">
+					<li><a href="/historyrepair" class="list-group-item list-group-item-action list-group-item-secondary">ประวัติการซ่อม</a></li>
+					<li><a href="/historymachine" class="list-group-item list-group-item-action list-group-item-secondary">ประวัติเครื่องจักร</a></li>
+					<li><a href="/personnelform" class="list-group-item list-group-item-action list-group-item-secondary">จัดการบุคคลากร</a></li>
+					<li><a href="/formChangePassword" class="list-group-item list-group-item-action list-group-item-secondary">เปลี่ยนพาสเวิร์ด</a></li>
+					<li><a href="/Adminmenu" class="list-group-item list-group-item-action list-group-item-secondary">กลับไปหน้าแรก</a></li>
+					</ul>
+				</nav> -->
+
+			<br><br><br>
+		<div>
+			<center>
+				<h1>จัดการงานซ่อม</h1>
+			</center>
+			<!-- <br><br><br> -->
+			<div style="margin: 15px 17% 15px 70%"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="ค้นหา...."></div>
+			<center>
+			<table id="myTable">
+		  <tr>
+		  	<th align=center rowspan=2>Job No.</th>
+				<th align=center rowspan=2>วันที่แจ้งซ่อม</th>
+				<th align=center rowspan=2>เวลาที่แจ้งซ่อม</th>
+				<th align=center rowspan=2>รายการแจ้ง</th>
+				<th align=center rowspan=2>ชื่อผู้แจ้ง</th>
+				<th align=center rowspan=2>ชื่อฝ่าย</th>
+		    <th align=center rowspan=2>สถานะ</th>
+				<th align=center rowspan=2>วันที่อัพเดทสถานะ</th>
+				<th align=center rowspan=2>เวลาอัพเดทสถานะ</th>
+				<th ALIGN=center COLSPAN=6>สถานะ</th>
+				<tr><th>&nbsp;&nbsp;0&nbsp;&nbsp;</th>    <th>&nbsp;&nbsp;1&nbsp;&nbsp;</th>
+					<th>&nbsp;&nbsp;2&nbsp;&nbsp;</th>  <th>&nbsp;&nbsp;3&nbsp;&nbsp;</th>
+		  </tr>
+		  <% for(var i=0;i<repairss.length;i++) {%>
+				<tr>
+				<td><%= repairss[i]['นับประเภท'] %></td>
+				<td><%= repairss[i]['วันที่แจ้งซ่อม'] %></td>
+				<td><%= repairss[i]['เวลาที่แจ้งซ่อม'] %></td>
+				<td>
+					<% if( repairss[i]['status'] == 'รอตอบรับเอกสาร') { %>
+						<div class="a"><a href="/formfull11/<%= repairss[i]['_id'] %>"><%= repairss[i]['อาการที่ปรากฏ'] %></a></div>
+					<% } %>
+					<% if( repairss[i]['status'] == 'รอดำเนินการซ่อม') { %>
+						<div class="a"><a href="/formfull22/<%= repairss[i]['_id'] %>"><%= repairss[i]['อาการที่ปรากฏ'] %></a></div>
+					<% } %>
+					<% if( repairss[i]['status'] == 'กำลังดำเนินการซ่อม') { %>
+						<div class="a"> &nbsp;<a class="glyphicon glyphicon-print" href="/formfull2Again/<%= repairss[i]['_id'] %>"></a>&nbsp; <a href="/formfull33/<%= repairss[i]['_id'] %>"><%= repairss[i]['อาการที่ปรากฏ'] %></a></div>
+					<% } %>
+					<% if( repairss[i]['status'] == 'ปิดงานแล้ว') { %>
+						<div class="a"> &nbsp;<a class="glyphicon glyphicon-pencil" href="/formfullEdit/<%= repairss[i]['_id'] %>"></a>&nbsp; <a href="/formfull44/<%= repairss[i]['_id'] %>"><%= repairss[i]['อาการที่ปรากฏ'] %></a></div>
+					<% } %>
+				</td>
+				<td><%= repairss[i]['ชื่อผู้แจ้งซ่อม'] %></td>
+				<td><%= repairss[i]['ฝ่าย'] %></td>
+				<td><%= repairss[i]['status'] %></td>
+				<td><%= repairss[i]['อัพเดทล่าสุด'] %></td>
+				<td><%= repairss[i]['เวลาอัพเดทสถานะ'] %></td>
+				<td><%= repairss[i]['สถานะ0'] %></td>
+				<td><%= repairss[i]['สถานะ1'] %></td>
+				<td><%= repairss[i]['สถานะ2'] %></td>
+				<td><%= repairss[i]['สถานะ3'] %></td>
+			</tr>
+				<% } %>
+		  <!-- <tr>
+		  	<td><a href="/formfull1">PM2/61</a></td>
+				<td>27/7/18</td>
+		    <td>วาล์วเสีย</td>
+		    <td>รอตอบรับเอกสาร</td>
+				<td>29/7/18</td>
+
+		  </tr>
+		  <tr>
+		  	<td><a href="/formfull1">PM3/61</a></td>
+				<td>28/7/18</td>
+		    <td>เครื่องกลั่นทำงานไม่ปกติ</td>
+		    <td>รอตอบรับเอกสาร</td>
+				<td>29/7/18</td>
+
+		  </tr>
+		  <tr>
+		  	<td><a href="/formfull1">PM4/61</a></td>
+				<td>30/7/18</td>
+		    <td>เครื่องจักร 1 ขัดข้อง</td>
+		    <td>รอตอบรับเอกสาร</td>
+				<td>31/7/18</td>
+
+		  </tr>
+		  <tr>
+		  	<td><a href="/formfull1">PM5/61</a></td>
+				<td>26/7/18</td>
+		    <td>เครื่องจักร 2 ขัดข้อง</td>
+		    <td>รอตอบรับเอกสาร</td>
+				<td>1/8/18</td>
+
+		  </tr>
+		  <tr>
+		  	<td><a href="/formfull3">PM5/61</a></td>
+				<td>29/7/18</td>
+		    <td>เครื่องจักร 3 ขัดข้อง</td>
+		    <td>ซ่อมเสร็จแล้วรอกรอกข้อมูล</td>
+				<td>6/8/18</td>
+
+		  </tr>
+		  <tr>
+		  	<td><a href="/formfull3">PM6/61</a></td>
+				<td>1/7/18</td>
+		    <td>เครื่องจักร 4 ขัดข้อง</td>
+		    <td>ซ่อมเสร็จแล้วรอกรอกข้อมูล</td>
+				<td>2/8/18</td>
+
+		  </tr>
+		  <tr>
+		  	<td><a href="/formfull3">PM7/61</a></td>
+				<td>31/7/18</td>
+		    <td>เครื่องจักร 5 ขัดข้อง</td>
+		    <td>ซ่อมเสร็จแล้วรอกรอกข้อมูล</td>
+				<td>2/8/18</td>
+
+		  </tr>
+		  <tr>
+		  	<td><a href="/formfull2">PM8/61</a></td>
+				<td>30/7/18</td>
+		    <td>เครื่องจักร 6 ขัดข้อง</td>
+		    <td>กำลังดำเนินงานซ่อม</td>
+				<td>6/8/18</td>
+
+		  </tr>
+		  <tr>
+		  	<td><a href="/formfull2">PM9/61</a></td>
+				<td>26/7/18</td>
+		    <td>เครื่องจักร 7 ขัดข้อง</td>
+		    <td>กำลังดำเนินงานซ่อม</td>
+				<td>1/8/18</td>
+		  </tr> -->
+		</table>
+		</center>
+		<br>
+		<br>
+		<!-- </div> -->
+</div>
+
+
+</body>
+	<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i,td1,td2,td3;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[0];
+		td1 = tr[i].getElementsByTagName("td")[2];
+		td2 = tr[i].getElementsByTagName("td")[3];
+    if (td || td1 || td2) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1 ||td1.innerHTML.toUpperCase().indexOf(filter) > -1 ||td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+</html>
